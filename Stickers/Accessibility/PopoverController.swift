@@ -153,7 +153,7 @@ extension PopoverController: NSCollectionViewDelegate, NSCollectionViewDataSourc
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
                     // NSApp.deactivate()
                     // strongSelf.watcher.simulateKey(0x09)
-                    FakeKey.simulateKey(0x09)
+                    FakeKey.simulateKey(CGKeyCode(0x09))
                     strongSelf.view.window?.close()
                     // NotificationCenter.default.post(name: NSPopover.willCloseNotification, object: nil, userInfo: ["status":true])
                 }

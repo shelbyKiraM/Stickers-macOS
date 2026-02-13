@@ -11,7 +11,7 @@ import Cocoa
 class CollectionViewItem: NSCollectionViewItem {
     
     let yourViewBorder = CAShapeLayer()
-    static var identifier = NSUserInterfaceItemIdentifier(String(describing: self))
+    static var identifier = NSUserInterfaceItemIdentifier(String(describing: CollectionViewItem.self))
     
     var image: Image! {
         didSet {

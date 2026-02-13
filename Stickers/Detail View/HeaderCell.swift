@@ -16,7 +16,7 @@ protocol ExpandedCellDelegate:NSObjectProtocol{
 // https://github.com/dwarvesf/session-buddy/blob/master/SessionBuddy%20Extension/Views/SessionListView/SessionCellView.swift
 final class HeaderCell: NSView, NSCollectionViewSectionHeaderView {
     
-    static var identifier = NSUserInterfaceItemIdentifier(String(describing: self))
+	static var identifier = NSUserInterfaceItemIdentifier(String(describing: HeaderCell.self))
     weak var delegate: ExpandedCellDelegate?
     public var section: Int!
     

@@ -35,18 +35,17 @@ class GlobalPopover {
             let selectedRangeError = AXUIElementCopyAttributeValue(focusedElement, kAXSelectedTextRangeAttribute as CFString, &selectedRangeValue)
             
             if (selectedRangeError == .success) {
-                guard let currentSelectedRange = focusedElement.selectedTextRange else { return }
-                
-                // select 1-length range
-                var newRange = currentSelectedRange
-                newRange.length = 1
-                newRange.location = newRange.location - 1
-                
-                // let newValue = AXValueCreate(AXValueType(rawValue: kAXValueCFRangeType)!, &newRange)
-                // AXUIElementSetAttributeValue(focusedElement, kAXSelectedTextRangeAttribute as CFString, newValue as CFTypeRef)
-                 
-                guard let afterSelectedRange = focusedElement.selectedTextRange, let bounds = focusedElement.bounds(for: CFRangeMake(newRange.location, newRange.length)) else { return }
-                _ = show(from: bounds)
+							guard let currentSelectedRange = focusedElement.selectedTextRange else { return }
+							guard currentSelectedRange.location > 0 else { return }
+
+							var newRange = currentSelectedRange
+							newRange.length = 1
+							newRange.location -= 1
+							
+							// let newValue = AXValueCreate(AXValueType(rawValue: kAXValueCFRangeType)!, &newRange)
+							// AXUIElementSetAttributeValue(focusedElement, kAXSelectedTextRangeAttribute as CFString, newValue as CFTypeRef)
+							guard let bounds = focusedElement.bounds(for: CFRangeMake(newRange.location, newRange.length)) else { return }
+							_ = show(from: bounds)
             }
         }
         
@@ -116,7 +115,7 @@ class GlobalPopover {
                     // NSApp.deactivate()
                     // strongSelf.watcher.simulateKey(0x09)
                     // FakeKey.simulateKey(0x09)
-                    FakeKey.send(0x33, useCommandFlag: false)
+                    FakeKey.send(CGKeyCode(0x33), useCommandFlag: false)
                     // strongSelf.view.window?.close()
                     // NotificationCenter.default.post(name: NSPopover.willCloseNotification, object: nil, userInfo: ["status":true])
                 }

@@ -1,25 +1,24 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "MASShortcut",
-        "repositoryURL": "https://github.com/shpakovski/MASShortcut",
-        "state": {
-          "branch": "master",
-          "revision": "57ccb018863b328a22298a275593a1d87ab4db24",
-          "version": null
-        }
-      },
-      {
-        "package": "SwiftyMarkdown",
-        "repositoryURL": "https://github.com/SimonFairbairn/SwiftyMarkdown",
-        "state": {
-          "branch": null,
-          "revision": "5b0a1e76332a633726f9f9a00b4bbd840166bccf",
-          "version": "1.2.3"
-        }
+  "originHash" : "008166a96b74991de5d366af1d49cc6c9a03d2189c69b363650f341cff6e51d1",
+  "pins" : [
+    {
+      "identity" : "masshortcut",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/shpakovski/MASShortcut",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6f2603c6b6cc18f64a799e5d2c9d3bbc467c413a"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "swiftymarkdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimonFairbairn/SwiftyMarkdown",
+      "state" : {
+        "revision" : "dde451ab4ed9b77b328e21baa471fdfa0cf61369",
+        "version" : "1.2.4"
+      }
+    }
+  ],
+  "version" : 3
 }

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ApplicationServices
 import MASShortcut
 
 @NSApplicationMain
@@ -106,12 +107,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    func readPrivileges(prompt: Bool) -> Bool {
-        let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeRetainedValue() as NSString: prompt]
-        let status = AXIsProcessTrustedWithOptions(options)
-        print("Reading Accessibility privileges - Current access status:", String(status))
-        return status
-    }
+	func readPrivileges(prompt: Bool) -> Bool {
+			let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeUnretainedValue(): prompt]
+			let status = AXIsProcessTrustedWithOptions(options)
+			print("Reading Accessibility privileges - Current access status:", status)
+			return status
+	}
     
     func privilegesUpdates() {
         if readPrivileges(prompt: false) {

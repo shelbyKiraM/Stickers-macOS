@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Cocoa
+import CoreGraphics
 
 class FakeKey {
     
